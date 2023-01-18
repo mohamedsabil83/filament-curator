@@ -2,9 +2,8 @@
 
 namespace Awcodes\Curator\View\Components;
 
-use Closure;
 use Awcodes\Curator\Models\Media;
-use Awcodes\Curator\Models\Curation as CurationModel;
+use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 

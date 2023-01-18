@@ -184,7 +184,7 @@ class Curator
 
     public function getCurationPresets(): array|null
     {
-        return collect($this->curationPresets)->map(function($preset) {
+        return collect($this->curationPresets)->map(function ($preset) {
             return $preset->getPreset();
         })->toArray();
     }

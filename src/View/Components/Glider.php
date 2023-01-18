@@ -55,37 +55,37 @@ class Glider extends Component
     {
         $params = array_filter(array_merge(
             [
-            'bg' => $this->background,
-            'blur' => $this->blur,
-            'border' => $this->border,
-            'bri' => $this->brightness,
-            'con' => $this->contrast,
-            'crop' => $this->crop,
-            'dpr' => $this->devicePixelRatio,
-            'filt' => $this->filter,
-            'fit' => $this->fit,
-            'flip' => $this->flip,
-            'fm' => $this->format,
-            'gam' => $this->gamma,
-            'h' => $this->height,
-            'q' => $this->quality,
-            'or' => $this->orientation,
-            'pixel' => $this->pixelate,
-            'sharp' => $this->sharpen,
-            'w' => $this->width,
-            'mark' => $this->watermarkPath,
-            'markw' => $this->watermarkWidth,
-            'markh' => $this->watermarkHeight,
-            'markx' => $this->watermarkXOffset,
-            'marky' => $this->watermarkYOffset,
-            'markpad' => $this->watermarkPadding,
-            'markpos' => $this->watermarkPosition,
-            'markalpha' => $this->watermarkAlpha,
-        ],
+                'bg' => $this->background,
+                'blur' => $this->blur,
+                'border' => $this->border,
+                'bri' => $this->brightness,
+                'con' => $this->contrast,
+                'crop' => $this->crop,
+                'dpr' => $this->devicePixelRatio,
+                'filt' => $this->filter,
+                'fit' => $this->fit,
+                'flip' => $this->flip,
+                'fm' => $this->format,
+                'gam' => $this->gamma,
+                'h' => $this->height,
+                'q' => $this->quality,
+                'or' => $this->orientation,
+                'pixel' => $this->pixelate,
+                'sharp' => $this->sharpen,
+                'w' => $this->width,
+                'mark' => $this->watermarkPath,
+                'markw' => $this->watermarkWidth,
+                'markh' => $this->watermarkHeight,
+                'markx' => $this->watermarkXOffset,
+                'marky' => $this->watermarkYOffset,
+                'markpad' => $this->watermarkPadding,
+                'markpos' => $this->watermarkPosition,
+                'markalpha' => $this->watermarkAlpha,
+            ],
             $overrides
         ));
 
-        return '/curator/' . $this->media->path . ($params ? '?' . http_build_query($params) : null);
+        return '/curator/'.$this->media->path.($params ? '?'.http_build_query($params) : null);
     }
 
     public function buildSrcSet(): ?string
@@ -94,8 +94,9 @@ class Glider extends Component
         if ($this->srcset) {
             foreach ($this->srcset as $s) {
                 $width = preg_replace("/\D/", '', $s);
-                $srcset .= $this->buildGlideSource(['w' => $width, 'h' => floor($width * ($this->media->height / $this->media->width))]) . ' ' . $s . ', ';
+                $srcset .= $this->buildGlideSource(['w' => $width, 'h' => floor($width * ($this->media->height / $this->media->width))]).' '.$s.', ';
             }
+
             return Str::of($srcset)->rtrim(', ');
         }
 
@@ -105,7 +106,7 @@ class Glider extends Component
     public function render(): View|Closure|string
     {
         if ($this->glide) {
-            $this->source = '/curator/' . $this->media->path . '?' . $this->glide;
+            $this->source = '/curator/'.$this->media->path.'?'.$this->glide;
         } else {
             $this->source = $this->buildGlideSource();
         }
@@ -116,6 +117,7 @@ class Glider extends Component
 
         return function (array $data) {
             ray($data);
+
             return 'curator::components.glider';
         };
     }

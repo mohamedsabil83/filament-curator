@@ -22,6 +22,6 @@ return [
         'success' => 'Item updated successfully.',
     ],
     'curations' => [
-        'button_label' => 'Create Curation'
-    ]
+        'button_label' => 'Create Curation',
+    ],
 ];

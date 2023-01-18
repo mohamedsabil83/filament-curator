@@ -76,7 +76,7 @@ class Media extends Model
 
     public function getCuration(string $key): array
     {
-        return Arr::first(collect($this->curations)->filter(function($item) use ($key) {
+        return Arr::first(collect($this->curations)->filter(function ($item) use ($key) {
             return $item['curation']['key'] === $key;
         }))['curation'] ?? [];
     }

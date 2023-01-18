@@ -2,11 +2,9 @@
 
 namespace Awcodes\Curator\Resources\MediaResource;
 
-use Awcodes\Curator\Facades\Curator;
 use Awcodes\Curator\Resources\MediaResource;
 use Filament\Pages\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Session;
 
 class ListMedia extends ListRecords
@@ -25,7 +23,7 @@ class ListMedia extends ListRecords
                     ->icon(function (): string {
                         return Session::get('tableLayout') ? 'heroicon-s-view-list' : 'heroicon-s-view-grid';
                     })
-                    ->action(function(): void {
+                    ->action(function (): void {
                         Session::put('tableLayout', ! Session::get('tableLayout'));
                     }),
             ],

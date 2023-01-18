@@ -38,7 +38,7 @@ class MediaResource extends Resource
                         Forms\Components\Section::make(__('curator::forms.sections.file'))
                             ->hiddenOn('edit')
                             ->schema([
-                                static::getUploaderField()
+                                static::getUploaderField(),
                             ]),
                         Forms\Components\Tabs::make('image')
                             ->hiddenOn('create')
@@ -54,7 +54,7 @@ class MediaResource extends Resource
                                             }),
                                     ]),
                                 Forms\Components\Tabs\Tab::make(__('curator::forms.sections.curation'))
-                                    ->visible(fn($record) => Str::of($record->type)->contains('image'))
+                                    ->visible(fn ($record) => Str::of($record->type)->contains('image'))
                                     ->schema([
                                         Forms\Components\Repeater::make('curations')
                                             ->itemLabel(fn ($state): ?string => $state['curation']['key'] ?? null)
@@ -65,12 +65,12 @@ class MediaResource extends Resource
                                                     ->buttonLabel(__('curator::forms.curations.button_label'))
                                                     ->required()
                                                     ->lazy(),
-                                            ])
+                                            ]),
                                     ]),
                                 Forms\Components\Tabs\Tab::make(__('curator::forms.sections.upload_new'))
                                     ->schema([
                                         static::getUploaderField()
-                                            ->helperText('If you have any curations for this media you will possibly need to recreate them, it will not happen automatically.')
+                                            ->helperText('If you have any curations for this media you will possibly need to recreate them, it will not happen automatically.'),
                                     ]),
                             ]),
                         Forms\Components\Section::make(__('curator::forms.sections.details'))

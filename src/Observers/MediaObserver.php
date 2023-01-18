@@ -11,7 +11,7 @@ class MediaObserver
     /**
      * Handle the Media "creating" event.
      *
-     * @param Media $media
+     * @param  Media  $media
      * @return void
      */
     public function creating(Media $media): void
@@ -32,7 +32,7 @@ class MediaObserver
     /**
      * Handle the Media "created" event.
      *
-     * @param Media $media
+     * @param  Media  $media
      * @return void
      */
     public function created(Media $media): void
@@ -43,7 +43,7 @@ class MediaObserver
     /**
      * Handle the Media "updating" event.
      *
-     * @param Media $media
+     * @param  Media  $media
      * @return void
      */
     public function updating(Media $media): void
@@ -79,7 +79,7 @@ class MediaObserver
     /**
      * Handle the Media "updated" event.
      *
-     * @param Media $media
+     * @param  Media  $media
      * @return void
      */
     public function updated(Media $media): void
@@ -116,7 +116,7 @@ class MediaObserver
     /**
      * Handle the Media "forceDeleted" event.
      *
-     * @param Media $media
+     * @param  Media  $media
      * @return void
      */
     public function forceDeleted(Media $media): void
